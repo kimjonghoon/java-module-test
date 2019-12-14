@@ -18,7 +18,7 @@ public class GetEmp {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT * FROM emp";
+		String sql = "SELECT * FROM EMP";
 
 		try {
 			con = oracleConnectionManager.getConnection();
@@ -51,12 +51,6 @@ public class GetEmp {
 		
 		MySqlConnectionManager mysqlConnectionManager = new MySqlConnectionManager();
 		
-		con = null;
-		stmt = null;
-		rs = null;
-
-		sql = "SELECT * FROM EMP";
-
 		try {
 			con = mysqlConnectionManager.getConnection();
 			stmt = con.prepareStatement(sql);
