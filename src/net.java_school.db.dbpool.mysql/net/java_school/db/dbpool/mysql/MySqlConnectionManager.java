@@ -7,7 +7,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import net.java_school.db.dbpool.ConnectionManager;
+import net.java_school.db.dbpool.MySQL;
 
+@MySQL
 public class MySqlConnectionManager extends ConnectionManager {
 	
 	private static final Logger logger = Logger.getLogger(MySqlConnectionManager.class.getName());
