@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import net.java_school.db.dbpool.ConnectionManager;
-import net.java_school.db.dbpool.Oracle;
+import net.java_school.db.dbpool.api.Oracle;
 
 @Oracle
 public class OracleConnectionManager extends ConnectionManager {

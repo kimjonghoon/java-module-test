@@ -1,4 +1,4 @@
-package net.java_school.db.dbpool;
+package net.java_school.db.dbpool.api;
 
 import java.sql.Connection;
 

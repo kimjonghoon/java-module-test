@@ -2,6 +2,8 @@ package net.java_school.db.dbpool;
 
 import java.sql.Connection;
 
+import net.java_school.db.dbpool.api.ConnectionManageable;
+
 public abstract class ConnectionManager implements ConnectionManageable {
 
 	protected DBConnectionPoolManager poolManager;

@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ServiceLoader;
 
-import net.java_school.db.dbpool.ConnectionManageable;
-import net.java_school.db.dbpool.MySQL;
+import net.java_school.db.dbpool.api.ConnectionManageable;
+import net.java_school.db.dbpool.api.MySQL;
 
 public class GetEmp {
 
