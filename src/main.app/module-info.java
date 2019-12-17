@@ -1,4 +1,4 @@
 module main.app {
 	requires net.java_school.db.dbpool;
-	uses net.java_school.db.dbpool.ConnectionManager;
+	uses net.java_school.db.dbpool.ConnectionManageable;
 }

@@ -6,16 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ServiceLoader;
 
-import net.java_school.db.dbpool.ConnectionManager;
+import net.java_school.db.dbpool.ConnectionManageable;
 import net.java_school.db.dbpool.MySQL;
 
 public class GetEmp {
 
 	public static void main(String[] args) {
 
-		ServiceLoader<ConnectionManager> managers = ServiceLoader.load(ConnectionManager.class);
+		ServiceLoader<ConnectionManageable> managers = ServiceLoader.load(ConnectionManageable.class);
 
-		ConnectionManager manager = managers.stream()
+		ConnectionManageable manager = managers.stream()
 			.filter(provider -> isMySQL(provider.type()))
 			.map(ServiceLoader.Provider::get).findAny().get();
 
