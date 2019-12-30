@@ -1,7 +1,7 @@
 package net.java_school.db.dbpool.oracle;
 
 import java.io.IOException;
-import java.net.URL;
+import java.io.InputStream;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,9 +16,15 @@ public class OracleConnectionManager extends ConnectionManager {
 	public OracleConnectionManager() {
 		this.poolName = "oracle";
 		String configFile = "oracle.properties";
-		
+
+		Class<?> clazz = OracleConnectionManager.class;
+		Module m = clazz.getModule();
+
 		try {
-			Properties prop = readProperties(configFile);
+			InputStream inputStream = m.getResourceAsStream(configFile);
+			Properties prop = new Properties();
+			prop.load(inputStream);
+
 			String dbServer = prop.getProperty("dbServer");
 			String port = prop.getProperty("port");
 			String dbName = prop.getProperty("dbName");
@@ -30,21 +36,13 @@ public class OracleConnectionManager extends ConnectionManager {
 			String driver = "oracle.jdbc.driver.OracleDriver";
 			String JDBCDriverType = "jdbc:oracle:thin";
 			String url = JDBCDriverType + ":@" + dbServer + ":" + port + ":" + dbName;
-			
+
 			initPoolManager(this.poolName, driver, url, userID, passwd, maxConn, initConn, maxWait);
 		} catch (IOException e) {
 			logger.log(Level.SEVERE, "Error reading properties of " + configFile);
 			throw new RuntimeException(e);
 		}
 
-	}
-
-	protected synchronized Properties readProperties(String configFile) throws IOException {
-		ClassLoader currentThreadClassLoader = Thread.currentThread().getContextClassLoader();
-		URL url = currentThreadClassLoader.getResource(configFile);
-		Properties properties = new Properties();
-		properties.load(url.openStream());
-		return properties;
 	}
 
 	@Override
