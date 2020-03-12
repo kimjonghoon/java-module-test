@@ -1,6 +1,6 @@
 # Java Module Test
 
-## Database Design for Oracle (SCOTT 
+## Database Design for Oracle
 
 https://github.com/oracle/dotnet-db-samples/blob/master/schemas/scott.sql
 
@@ -69,10 +69,15 @@ https://github.com/oracle/dotnet-db-samples/blob/master/schemas/scott.sql
 	COMMIT;
 	exit;
 
-## How to compile
+## Compile
 
-	javac -d mods -p jars --module-source-path src $(find src -name "*.java")
+	javac -d out --module-source-path src $(find src -name "*.java")
 
-## How to run
-	
-	java -p mods:jars -m main.app/net.java_school.test.GetEmp
+## Copy the Java property files into each module directory
+
+    cp src/net.java_school.db.dbpool.oracle/oracle.properties out/net.java_school.db.dbpool.oracle/
+    cp src/net.java_school.db.dbpool.mysql/mysql.properties out/net.java_school.db.dbpool.mysql/
+    
+## Run
+
+	java -p out:jars -m main.app/net.java_school.test.GetEmp
