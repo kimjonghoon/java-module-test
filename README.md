@@ -69,6 +69,14 @@ https://github.com/oracle/dotnet-db-samples/blob/master/schemas/scott.sql
 	COMMIT;
 	exit;
 
+## Have to do
+
+Download the Oracle JDBC driver(ojdbc6.jar) from the https://www.oracle.com/database/technologies/jdbcdriver-ucp-downloads.html#license-lightbox
+
+Download the MySQL JDBC driver(mysql-connector-java-5.1.48.jar) from the https://dev.mysql.com/downloads/file/?id=489462
+
+Add ojdbc6.jar, mysql-connector-java-5.1.48.jar to the jars/ directory.
+
 ## Compile
 
 	javac -d out --module-source-path src $(find src -name "*.java")
