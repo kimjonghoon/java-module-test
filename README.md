@@ -73,9 +73,9 @@ https://github.com/oracle/dotnet-db-samples/blob/master/schemas/scott.sql
 
 Download the Oracle JDBC driver(ojdbc6.jar) from the https://www.oracle.com/database/technologies/jdbcdriver-ucp-downloads.html#license-lightbox
 
-Download the MySQL JDBC driver(mysql-connector-java-5.1.48.jar) from the https://dev.mysql.com/downloads/file/?id=489462
+Download the MySQL JDBC driver(mysql-connector-java-8.0.28.jar) from the https://dev.mysql.com/downloads/file/?id=509727
 
-Add ojdbc6.jar, mysql-connector-java-5.1.48.jar to the jars/ directory.
+Add ojdbc6.jar, mysql-connector-java-8.0.28.jar to the jars/ directory.
 
 ## Compile
 
