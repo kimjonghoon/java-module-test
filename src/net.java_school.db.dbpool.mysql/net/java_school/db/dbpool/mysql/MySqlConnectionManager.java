@@ -36,7 +36,7 @@ public class MySqlConnectionManager extends ConnectionManager {
 			int maxWait = Integer.parseInt(prop.getProperty("maxWait"));
 			String driver = "com.mysql.jdbc.Driver";
 			String JDBCDriverType = "jdbc:mysql";
-			String url = JDBCDriverType + "://" + dbServer + ":" + port + "/" + dbName + "?useUnicode=yes&amp;characterEncoding=UTF-8";
+			String url = JDBCDriverType + "://" + dbServer + ":" + port + "/" + dbName + "?useUnicode=true&characterEncoding=UTF-8";
 
 			initPoolManager(this.poolName, driver, url, userID, passwd, maxConn, initConn, maxWait);
 		} catch (IOException e) {

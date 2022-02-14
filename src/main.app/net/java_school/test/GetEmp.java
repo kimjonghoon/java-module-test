@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ServiceLoader;
 
 import net.java_school.db.dbpool.api.ConnectionManageable;
-//import net.java_school.db.dbpool.api.MySQL;
-import net.java_school.db.dbpool.api.Oracle;
+import net.java_school.db.dbpool.api.MySQL;
+//import net.java_school.db.dbpool.api.Oracle;
 
 public class GetEmp {
 
@@ -17,7 +17,7 @@ public class GetEmp {
 		ServiceLoader<ConnectionManageable> managers = ServiceLoader.load(ConnectionManageable.class);
 
 		ConnectionManageable manager = managers.stream()
-			.filter(provider -> isOracle(provider.type()))
+			.filter(provider -> isMySQL(provider.type()))
 			.map(ServiceLoader.Provider::get).findAny().get();
 
 		Connection con = null;
@@ -59,15 +59,15 @@ public class GetEmp {
 
 		System.out.println("Driver Number: " + 	manager.getDriverNumber());
 	}	
+	private static boolean isMySQL(Class<?> clazz) {
+		return clazz.isAnnotationPresent(MySQL.class)
+			&& clazz.getAnnotation(MySQL.class).value() == true;
+	}
 	/*
-	   private static boolean isMySQL(Class<?> clazz) {
-	   return clazz.isAnnotationPresent(MySQL.class)
-	   && clazz.getAnnotation(MySQL.class).value() == true;
+	   private static boolean isOracle(Class<?> clazz) {
+	   return clazz.isAnnotationPresent(Oracle.class)
+	   && clazz.getAnnotation(Oracle.class).value() == true;
 	   }
 	   */
-	private static boolean isOracle(Class<?> clazz) {
-		return clazz.isAnnotationPresent(Oracle.class)
-			&& clazz.getAnnotation(Oracle.class).value() == true;
-	}
 
 }
