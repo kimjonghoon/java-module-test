@@ -59,16 +59,15 @@ public class GetEmp {
 
 		System.out.println("Driver Number: " + 	manager.getDriverNumber());
 	}	
-	/*
+	/*	
 	private static boolean isMySQL(Class<?> clazz) {
 		return clazz.isAnnotationPresent(MySQL.class)
 			&& clazz.getAnnotation(MySQL.class).value() == true;
 	}
-	*/
-	
+	*/	
+		
 	private static boolean isOracle(Class<?> clazz) {
 		return clazz.isAnnotationPresent(Oracle.class)
 			&& clazz.getAnnotation(Oracle.class).value() == true;
 	}
-
 }
