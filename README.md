@@ -76,11 +76,11 @@ https://github.com/oracle/dotnet-db-samples/blob/master/schemas/scott.sql
 
 ## Have to do
 
-Download the Oracle JDBC driver(ojdbc6.jar) from the https://www.oracle.com/database/technologies/jdbcdriver-ucp-downloads.html#license-lightbox
+Download the Oracle JDBC driver(ojdbc17.jar) from the https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html
 
-Download the MySQL JDBC driver(mysql-connector-java-8.0.28.jar) from the https://dev.mysql.com/downloads/file/?id=509727
+Download the MySQL JDBC driver(mysql-connector-j-9.3.0.jar) from the https://dev.mysql.com/downloads/connector/j/
 
-Add ojdbc6.jar, mysql-connector-java-8.0.28.jar to the jars/ directory.
+Add ojdbc17.jar, mysql-connector-j-9.3.0.jar to the jars/ directory.
 
 ## Compile
 
@@ -100,7 +100,7 @@ Add ojdbc6.jar, mysql-connector-java-8.0.28.jar to the jars/ directory.
     vi src/main.app/net/java_school/test/GetEmp.java
     
     ConnectionManageable manager = managers.stream()
-                        .filter(provider -> isMySQL(provider.type()))
+                        .filter(provider -> **isMySQL**(provider.type()))
                         .map(ServiceLoader.Provider::get).findAny().get();
 
     javac -d out --module-source-path src $(find src -name "*.java")
