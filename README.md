@@ -99,7 +99,9 @@ Add ojdbc17.jar, mysql-connector-j-9.3.0.jar to the jars/ directory.
 
     vi src/main.app/net/java_school/test/GetEmp.java
     
-    ConnectionManageable manager = managers.stream().filter(provider -> **isMySQL**(provider.type())).map(ServiceLoader.Provider::get).findAny().get();
+    ConnectionManageable manager = managers.stream().
+        filter(provider -&gt; **isMySQL**(provider.type())).
+        map(ServiceLoader.Provider::get).findAny().get();
 
     javac -d out --module-source-path src $(find src -name "*.java")
     
