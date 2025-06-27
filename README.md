@@ -2,9 +2,14 @@
 
 ## Database Design for Oracle
 
+Download a SCOTT schema from
 https://github.com/oracle/dotnet-db-samples/blob/master/schemas/scott.sql
 
-	sqlplus scott/TIGER
+    sqlplus / as sysdba
+    
+    @C:\Users\john\Downloads\scott.sql
+    
+    sqlplus scott/TIGER
 	alter user scott identified by tiger;
 	exit;
 
@@ -89,3 +94,18 @@ Add ojdbc6.jar, mysql-connector-java-8.0.28.jar to the jars/ directory.
 ## Run
 
 	java -p out:jars -m main.app/net.java_school.test.GetEmp
+	
+##	for using db.dbpool.mysql
+
+    vi src/main.app/net/java_school/test/GetEmp.java
+    
+    ConnectionManageable manager = managers.stream()
+                        .filter(provider -> isMySQL(provider.type()))
+                        .map(ServiceLoader.Provider::get).findAny().get();
+
+    javac -d out --module-source-path src $(find src -name "*.java")
+    
+    java -p out:jars -m main.app/net.java_school.test.GetEmp
+
+    
+    
